@@ -1,0 +1,195 @@
+#instructions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  margin: 0;
+  font-weight: 800;
+  font-size: 12em;
+  text-align: center;
+  text-transform: uppercase;
+  color: lightgray;
+}
+
+#stairs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  perspective: 1000px;
+  perspective-origin: 90% 0%;
+  transform-style: preserve-3d;
+  transform: rotateX(60deg) rotateY(0deg);
+}
+#stairs li {
+  position: relative;
+  width: 2em;
+  height: 1em;
+  margin: 4em 0;
+  transform-style: preserve-3d;
+}
+#stairs li:nth-child(1) {
+  transform: translateX(-600%);
+}
+#stairs li:nth-child(2) {
+  transform: translateX(-450%);
+}
+#stairs li:nth-child(3) {
+  transform: translateX(-300%);
+}
+#stairs li:nth-child(4) {
+  transform: translateX(-150%);
+}
+#stairs li:nth-child(6) {
+  transform: translateX(150%);
+}
+#stairs li:nth-child(7) {
+  transform: translateX(300%);
+}
+#stairs li:nth-child(8) {
+  transform: translateX(450%);
+}
+#stairs li:nth-child(9) {
+  transform: translateX(600%);
+}
+#stairs li:nth-child(5) span:nth-child(3):before,
+#stairs li:nth-child(5) span:nth-child(3):after {
+  display: block;
+  width: 63em;
+  height: 0.25em;
+  background: black;
+  transform-style: preserve-3d;
+}
+#stairs li:nth-child(5) span:nth-child(3):before {
+  content: "";
+  transform-origin: 0px 0px;
+  transform: translateX(-20.25em) translateY(0em) translateZ(30.1em)
+    rotateX(-90deg) rotateY(0deg) rotateZ(40deg);
+}
+#stairs li:nth-child(5) span:nth-child(3):after {
+  content: "after";
+  transform-origin: 0px 0px;
+  transform: translateX(-20.5em) translateY(14em) translateZ(30.5em)
+    rotateX(-90deg) rotateY(0deg) rotateZ(40deg);
+}
+#stairs li span {
+  position: absolute;
+  background: black;
+  transform-style: preserve-3d;
+}
+#stairs li span:nth-child(1) {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border: 3px solid black;
+  transform-style: preserve-3d;
+}
+#stairs li span:nth-child(1):before,
+#stairs li span:nth-child(1):after {
+  content: "";
+  display: block;
+  width: 0.25em;
+  height: 30em;
+  background: black;
+  transform-style: preserve-3d;
+}
+
+#stairs li span:nth-child(1):after {
+  height: 40em;
+  background: rgba(0, 0, 0, 0.349);
+}
+
+#stairs li span:nth-child(1):before {
+  transform: translateX(1.5em) translateY(-30em);
+}
+#stairs li span:nth-child(1):after {
+  transform: translateX(0.3em) translateY(-2em) translateZ(-14em);
+}
+#stairs li span:nth-child(2) {
+  width: 2em;
+  height: 14em;
+  transform: translateY(-6em) translateZ(-7em) rotateX(90deg);
+}
+#stairs li span:nth-child(3) {
+  width: 2em;
+  height: 14em;
+  transform: translateY(-7em) translateZ(-7em) rotateX(90deg);
+}
+#stairs li span:nth-child(4) {
+  width: 100%;
+  height: 100%;
+  transform: translateZ(-14em);
+}
+#stairs li span:nth-child(5) {
+  width: 1em;
+  height: 14em;
+  transform: translateX(-0.5em) translateY(-6.5em) translateZ(-7em)
+    rotateX(90deg) rotateY(90deg);
+}
+#stairs li span:nth-child(6) {
+  width: 1em;
+  height: 14em;
+  transform: translateX(1.5em) translateY(-6.5em) translateZ(-7em)
+    rotateX(90deg) rotateY(90deg);
+}
+
+/* Custom Code */
+
+root {
+  --power: linear(
+    0,
+    0.0012 14.95%,
+    0.0089 22.36%,
+    0.0297 28.43%,
+    0.0668 33.43%,
+    0.0979 36.08%,
+    0.1363 38.55%,
+    0.2373 43.07%,
+    0.3675 47.01%,
+    0.5984 52.15%,
+    0.7121 55.23%,
+    0.8192 59.21%,
+    0.898 63.62%,
+    0.9297 66.23%,
+    0.9546 69.06%,
+    0.9733 72.17%,
+    0.9864 75.67%,
+    0.9982 83.73%,
+    1
+  );
+}
+
+#stairs {
+  left: -50%;
+  top: -3.5em;
+}
+
+#instructions {
+  font-size: 4em;
+  top: 100%;
+  transform: translate() rotateZ(0deg);
+  opacity: 1;
+  text-align: center;
+  text-transform: uppercase;
+  color: lightgray;
+  /* animation: stairsTextFall 2s ease-in-out forwards; */
+}
+
+@keyframes stairsTextFall {
+  0% {
+    transform: translate(-150%, -260%) scale(0.8) rotateZ(40deg);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: translate(-90%, -130%) scale(1) rotateZ(40deg);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Custom Code */

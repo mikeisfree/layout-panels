@@ -1,0 +1,383 @@
+body {
+  background-color: #282a2d;
+  background-image: url("https://i.imgsafe.org/6c147abfa3.jpg");
+  background-repeat: repeat;
+  color: white;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.2rem;
+  margin: 0;
+  overflow: hidden;
+  perspective: 1000px;
+  text-transform: uppercase;
+}
+.site-wrap {
+  transition: transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.site-wrap.show-all {
+  transform: rotateY(-15deg) scale(0.2);
+}
+.panel-wrap {
+  height: 100vh;
+  width: 100vw;
+}
+.panel h1 {
+  font-size: 20vmin;
+  margin: 0;
+}
+.panel-wrap {
+  perspective: 2000px;
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.panel-wrap.animate--shrink,
+.panel-wrap.animate--tilt,
+.panel-wrap.animate--tilt2 {
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.1, 1) 0.3s;
+}
+.panel {
+  height: 100vh;
+  position: absolute;
+  transition: transform 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  width: 100vw;
+  will-change: transform;
+}
+.panel:before {
+  background-color: transparent;
+  bottom: 0;
+  content: "";
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: background-color 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: 2;
+}
+.show-all .panel:before {
+  pointer-events: all;
+}
+.show-all .panel:hover:before {
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+.animate--shrink.animate .panel {
+  transform: scale(0.9);
+}
+.animate--tilt.animate .panel {
+  transform: scale(0.6) rotateY(-25deg);
+}
+.animate--tilt2.animate .panel {
+  transform: scale(0.8) rotateX(25deg);
+}
+.panel h1 {
+  cursor: default;
+  left: 50%;
+  line-height: 1;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  user-select: none;
+}
+.panel[data-x-pos="-2"] {
+  left: -200%;
+}
+.panel[data-x-pos="-1"] {
+  left: -100%;
+}
+.panel[data-x-pos="1"] {
+  left: 100%;
+}
+.panel[data-x-pos="2"] {
+  left: 200%;
+}
+.panel[data-y-pos="-2"] {
+  top: 200%;
+}
+.panel[data-y-pos="-1"] {
+  top: 100%;
+}
+.panel[data-y-pos="1"] {
+  top: -100%;
+}
+.panel[data-y-pos="2"] {
+  top: -200%;
+}
+.panel__zoom {
+  cursor: pointer;
+  left: 50%;
+  opacity: 0.2;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%) translateY(-12vmin);
+  transition: opacity 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  user-select: none;
+  z-index: 10;
+}
+.panel__zoom:hover {
+  opacity: 1;
+}
+.show-all .panel__zoom {
+  pointer-events: none;
+}
+.panel__nav {
+  cursor: pointer;
+  opacity: 0.2;
+  position: absolute;
+  transition: opacity 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  user-select: none;
+  will-change: opacity;
+}
+.panel__nav--up {
+  left: 50%;
+  top: 1rem;
+  transform: translateX(-50%);
+}
+.panel__nav--left {
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg) translateX(-100%);
+  transform-origin: top left;
+}
+.panel__nav--left-top {
+  left: 1rem;
+  top: 1rem;
+}
+.panel__nav--left-down {
+  bottom: 1rem;
+  left: 1rem;
+}
+.panel__nav--right {
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg) translateX(100%);
+  transform-origin: top right;
+}
+.panel__nav--right-top {
+  right: 1rem;
+  top: 1rem;
+}
+.panel__nav--right-down {
+  bottom: 1rem;
+  right: 1rem;
+}
+.panel__nav--down {
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.panel__nav:hover {
+  opacity: 1;
+}
+.panel__animation-list {
+  font-size: 3.3vmin;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%) translateY(14vmin);
+}
+.panel__animation-list span {
+  cursor: pointer;
+  display: inline-block;
+  opacity: 0.2;
+  position: relative;
+  transition: opacity 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  user-select: none;
+}
+.panel__animation-list span:after {
+  border-bottom: 0.3vmin solid transparent;
+  bottom: 0;
+  content: "";
+  left: -1px;
+  position: absolute;
+  right: 0;
+  transition: border-color 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  width: 100%;
+}
+.panel__animation-list span.active,
+.panel__animation-list span:hover {
+  opacity: 1;
+}
+.panel__animation-list span.active:after,
+.panel__animation-list span:hover:after {
+  border-color: white;
+}
+
+/*  Custom Code*/
+
+.observerStairs01 {
+  font-size: clamp(1rem, -2.6rem + 14.4vw, 10rem);
+  top: 50%;
+  transform: translate(-150%, -250%) rotateZ(40deg);
+
+  visibility: hidden;
+}
+
+.observerStairs01.active {
+  visibility: visible;
+  animation: stairsTextFall 2s ease-in-out forwards;
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  border: 1px solid #282a2d;
+  bottom: 0%;
+  left: 0%;
+  width: 35%;
+  height: 35%;
+  cursor: grab;
+  z-index: 2;
+  /* perspective: 1000px; */
+  filter: drop-shadow(4px 4px 84px rgb(255, 255, 255));
+}
+
+.mainBcg {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+.hero {
+  display: flex;
+  perspective: 3000px;
+  transform: preserve-3d;
+  position: relative;
+  top: 0%;
+  flex-direction: row;
+  width: 80%;
+  z-index: 1;
+  height: 80%;
+  justify-content: space-around;
+  align-items: space-around;
+  align-content: space-around;
+}
+
+.panel-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.panel[data-x-pos="0"][data-y-pos="0"] {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.panel__animation-list {
+  z-index: 2;
+}
+
+.panel__animation-list .js-animation {
+  z-index: 20;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: 6rem;
+  background-image: url(rooms/img/woman.png);
+  background-position: right;
+  position: relative;
+  top: 15%;
+  background-size: 200%;
+  background-clip: text;
+  color: transparent;
+  text-align: left;
+  width: 100%;
+  align-self: center;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+  -webkit-text-stroke: 2px black;
+}
+
+.hero h1:hover {
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.panel__nav {
+  z-index: 100000;
+}
+
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.lightPanel {
+  background-size: 100% 100%;
+  background-position: 0px 0px, 0px 0px, 0px 0px;
+  background-image: conic-gradient(
+      from 117deg at 45% 47%,
+      #083446 0%,
+      #073aff00 100%
+    ),
+    conic-gradient(from 0deg at 17% -2%, #06131b 1%, #ff000000 99%),
+    conic-gradient(from 233deg at 111% 84%, #131d26 0%, #ff0000ff 100%);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+}
+
+.light img {
+  animation: rotateLamp 2s ease-in-out infinite alternate;
+  transform-origin: top center;
+  width: 90px;
+}
+
+.light {
+  background-image: conic-gradient(
+    from var(--rotate) at 29% 10%,
+    #0b1012 40%,
+    #ffffff,
+    #0b1012 60%
+  );
+  font-size: clamp(2.8rem, -0.2667rem + 12.2667vw, 12rem);
+  font-weight: 900;
+  font-family: michroma;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: rotateLight 2s ease-in-out infinite alternate;
+  color: #b4c3ce8d;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-text-select: none;
+  -webkit-user-select: none;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 20vh;
+}
+
+@keyframes rotateLight {
+  from {
+    --rotate: 0.15turn;
+  }
+  to {
+    --rotate: -0.25turn;
+  }
+}
+
+@keyframes rotateLamp {
+  from {
+    transform: rotate(15deg);
+  }
+  to {
+    transform: rotate(-25deg);
+  }
+}
+
+.observerStairs {
+  z-index: -1;
+}

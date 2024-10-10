@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="bg-wall">
+      <ul>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+      </ul>
+    </div>
+    <div class="side-wall">
+      <ul class="perspective">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <script>
+      document.body.addEventListener("click", () => {
+        // yes
+        document.querySelectorAll("*").forEach((el) => {
+          el.style.animation = "none";
+
+          setTimeout(() => {
+            el.style.animation = null;
+          }, 0);
+        });
+      });
+    </script>
+  </body>
+</html>

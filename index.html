@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="rooms/css/connectors.css" />
+    <link rel="stylesheet" href="rooms/css/connector10.css" />
+    <link rel="stylesheet" href="rooms/css/connector1-1.css" />
+    <link rel="stylesheet" href="tools/cursor.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("#connectorMain").load("rooms/connectors.html");
+        $("#connector10").load("rooms/connector10.html");
+        $("#connector1-1").load("rooms/connector1-1.html");
+      });
+    </script>
+  </head>
+  <body>
+    <div class="site-wrap">
+      <div id="cursor">
+        <div class="cursor__circle"></div>
+      </div>
+      <div class="panel-wrap animate--none">
+        <div class="panel" data-x-pos="0" data-y-pos="0">
+          <span class="panel__nav panel__nav--up js-up">up</span>
+          <span class="panel__nav panel__nav--right-top js-up js-right"
+            >up/right</span
+          >
+          <span class="panel__nav panel__nav--left-top js-up js-left"
+            >up/left</span
+          >
+          <span class="panel__nav panel__nav--left js-left">left</span>
+          <span
+            class="panel__nav panel__nav--right js-right"
+            cursor-class="arrow"
+            >right</span
+          >
+          <span class="panel__nav panel__nav--right-down js-down js-right"
+            >down/right</span
+          >
+          <span class="panel__nav panel__nav--left-down js-down js-left"
+            >down/left</span
+          >
+          <span class="panel__nav panel__nav--down js-down">down</span>
+          <span class="panel__zoom js-zoom">View All</span>
+          <iframe
+            class="mainBcg"
+            src="https://unicorn.studio/embed/ogwEpwVjI0Jn1yVaq1ub"
+            width="548px"
+            height="548px"
+            loading="lazy"
+          ></iframe>
+          <div class="hero" id="hero">
+            <canvas></canvas>
+            <h1>
+              Play Ground<br />
+              Experiments<br />
+              Portfolio<br />
+              Diary
+            </h1>
+          </div>
+          <div class="panel__animation-list">
+            <span class="js-animation active" data-animation="animate--none"
+              >None</span
+            >
+            <span
+              class="js-animation"
+              cursor-class="subtle"
+              data-animation="animate--shrink"
+              >Shrink</span
+            >
+            <span
+              class="js-animation"
+              cursor-class="subtle"
+              data-animation="animate--tilt"
+              >Tilt</span
+            >
+            <span
+              class="js-animation"
+              cursor-class="subtle"
+              data-animation="animate--tilt2"
+              >Tilt-2</span
+            >
+
+            <!-- This is Connector -->
+
+            <div
+              id="connectorMain"
+              style="
+                position: absolute;
+                top: 0%;
+                z-index: 1;
+                pointer-events: none;
+              "
+            ></div>
+
+            <!-- This is Connector -->
+          </div>
+        </div>
+        <div class="panel" data-x-pos="0" data-y-pos="1">
+          <span class="panel__nav panel__nav--left js-left">left</span>
+          <span class="panel__nav panel__nav--right js-right">right</span>
+          <span class="panel__nav panel__nav--right-down js-down js-right"
+            >down/right</span
+          >
+          <span class="panel__nav panel__nav--left-down js-down js-left"
+            >down/left</span
+          >
+          <span class="panel__nav panel__nav--down js-down">down</span>
+          <h1>Up</h1>
+        </div>
+        <div class="panel" data-x-pos="-1" data-y-pos="1">
+          <span class="panel__nav panel__nav--right-down js-down js-right"
+            >down/right</span
+          >
+          <span class="panel__nav panel__nav--right js-right">right</span>
+          <span class="panel__nav panel__nav--down js-down">down</span>
+          <h1>Up Left</h1>
+        </div>
+        <div class="panel" data-x-pos="1" data-y-pos="1">
+          <span class="panel__nav panel__nav--left-down js-down js-left"
+            >down/left</span
+          >
+          <span class="panel__nav panel__nav--left js-left">left</span>
+          <span class="panel__nav panel__nav--down js-down">down</span>
+          <h1>Up Right</h1>
+        </div>
+        <div class="panel" data-x-pos="-1" data-y-pos="0">
+          <span class="panel__nav panel__nav--up js-up">up</span>
+          <span class="panel__nav panel__nav--right-top js-up js-right"
+            >up/right</span
+          >
+          <span class="panel__nav panel__nav--right js-right">right</span>
+          <span class="panel__nav panel__nav--right-down js-down js-right"
+            >down/right</span
+          >
+          <span class="panel__nav panel__nav--down js-down">down</span>
+          <h1>Left</h1>
+        </div>
+        <div class="panel" data-x-pos="-1" data-y-pos="-1">
+          <span class="panel__nav panel__nav--up js-up">up</span>
+          <span class="panel__nav panel__nav--right-top js-up js-right"
+            >up/right</span
+          >
+          <span class="panel__nav panel__nav--right js-right">right</span>
+          <h1>Down Left</h1>
+        </div>
+        <div class="panel" data-x-pos="1" data-y-pos="-1">
+          <span class="panel__nav panel__nav--up js-up">up</span>
+          <span class="panel__nav panel__nav--left-top js-up js-left"
+            >up/left</span
+          >
+          <span class="panel__nav panel__nav--left js-left">left</span>
+
+          <!-- This is Connector -->
+
+          <div
+            id="connector1-1"
+            style="
+              position: absolute;
+              top: 0%;
+              left: 05;
+              z-index: 1;
+              pointer-events: none;
+              display: flex;
+            "
+          ></div>
+
+          <!-- This is Connector -->
+
+          <!-- <h5>Down Right</h5> -->
+        </div>
+        <div class="panel stairsPanel" data-x-pos="1" data-y-pos="0">
+          <span class="panel__nav panel__nav--up js-up">up</span>
+          <span class="panel__nav panel__nav--left-top js-up js-left"
+            >up/left</span
+          >
+          <span class="panel__nav panel__nav--left js-left">left</span>
+          <span class="panel__nav panel__nav--left-down js-down js-left"
+            >down/left</span
+          >
+          <span class="panel__nav panel__nav--down js-down">down</span>
+
+          <!-- This is Connector -->
+
+          <div
+            id="connector10"
+            class="bg"
+            style="
+              position: absolute;
+              top: 0%;
+              z-index: 1;
+              pointer-events: none;
+            "
+          ></div>
+
+          <!-- This is Connector -->
+
+          <h1>Right</h1>
+        </div>
+
+        <div class="panel observerStairs" data-x-pos="0" data-y-pos="-1">
+          <span class="panel__nav panel__nav--up js-up">up</span>
+          <span class="panel__nav panel__nav--left-top js-up js-left"
+            >up/left</span
+          >
+          <span class="panel__nav panel__nav--right-top js-up js-right"
+            >up/right</span
+          >
+          <span class="panel__nav panel__nav--left js-left">left</span>
+          <span class="panel__nav panel__nav--right js-right">right</span>
+          <span class="panel__nav panel__nav--down js-down">down</span>
+          <div class="lightPanel">
+            <div class="light">
+              <img src="rooms/img/lamp1-transformed.webp" />
+              Room
+            </div>
+          </div>
+          <h1 class="observerStairs01">Down</h1>
+        </div>
+        <div class="panel" data-x-pos="0" data-y-pos="-2">
+          <span class="panel__nav panel__nav--up js-up">up</span>
+          <h1>Down 2</h1>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="rooms/js/connectors.js"></script>
+    <script src="tools/cursor.js"></script>
+    <script
+      async
+      src="https://ga.jspm.io/npm:es-module-shims@1.7.1/dist/es-module-shims.js"
+    ></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.151.3/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.151.3/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module">
+      import * as THREE from "three";
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js"; // Correct module import
+
+      // Alexander Krivitskiy https://unsplash.com/photos/o7wiNx9x9OQ
+      const image_url =
+        "https://images.unsplash.com/photo-1602033350291-a9ab8d800269?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGZhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60";
+      const image_tex = new THREE.TextureLoader().load(image_url);
+      image_tex.wrapT = THREE.RepeatWrapping;
+
+      // Amit Lahav https://unsplash.com/photos/h3dH3Ov2SqA
+      const bump_url =
+        "https://images.unsplash.com/photo-1582363476910-3223e5fd0b32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTl8fGdyYWlufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60";
+      const bump_tex = new THREE.TextureLoader().load(bump_url);
+
+      // ---
+      // stairs geom poc, in 1x1x1, centered at o
+      // ---
+
+      class StairsGeom extends THREE.BufferGeometry {
+        constructor(n_steps = 1) {
+          // +ve int
+          super();
+          this.type = "StairsGeom";
+          const pos = new Float32Array(3 * 6 * n_steps); //six 3tuple per step
+          const norm = new Float32Array(3 * 6 * n_steps); //six 3tuple per step
+          const uv = new Float32Array(2 * 6 * n_steps); //six 2tuple per step
+          const idx = new Uint16Array(12 * n_steps); //12 indices per step
+          const avg = new THREE.Vector3(0, 1, 1).normalize().toArray(); // avg normal
+          for (let i = 0; i < n_steps; ++i) {
+            const r0 = i / n_steps;
+            const r1 = (i + 1) / n_steps;
+            pos.set(
+              [
+                -0.5,
+                r0 - 0.5,
+                0.5 - r0, // near lower L
+                +0.5,
+                r0 - 0.5,
+                0.5 - r0, // near lower R
+                -0.5,
+                r1 - 0.5,
+                0.5 - r0, // near upper L
+                +0.5,
+                r1 - 0.5,
+                0.5 - r0, // near upper R
+                -0.5,
+                r1 - 0.5,
+                0.5 - r1, // far upper L
+                +0.5,
+                r1 - 0.5,
+                0.5 - r1, // far upper R
+              ],
+              i * 18
+            );
+            norm.set(
+              [
+                0,
+                0,
+                1,
+                0,
+                0,
+                1, // near lower L and R
+                ...avg,
+                ...avg, // near upper L and R
+                0,
+                1,
+                0,
+                0,
+                1,
+                0, // far upper L and R
+              ],
+              i * 18
+            );
+            const rmid = r0 + (r1 - r0) / 2;
+            uv.set(
+              [
+                0,
+                r0,
+                1,
+                r0, // near lower L and R
+                0,
+                rmid,
+                1,
+                rmid, // near upper L and R
+                0,
+                r1,
+                1,
+                r1, // far upper L and R
+              ],
+              i * 12
+            );
+            const k = 6 * i;
+            idx.set(
+              [
+                k,
+                k + 1,
+                k + 2,
+                k + 2,
+                k + 1,
+                k + 3, // quad (upright)
+                k + 2,
+                k + 3,
+                k + 4,
+                k + 4,
+                k + 3,
+                k + 5, // quad
+              ],
+              i * 12
+            );
+          }
+          this.setAttribute(
+            "position",
+            new THREE.Float32BufferAttribute(pos, 3)
+          );
+          this.setAttribute(
+            "normal",
+            new THREE.Float32BufferAttribute(norm, 3)
+          );
+          this.setAttribute("uv", new THREE.Float32BufferAttribute(uv, 2));
+          this.setIndex(new THREE.Uint16BufferAttribute(idx, 1));
+        }
+      }
+
+      // ----
+      // main
+      // ----
+
+      const renderer = new THREE.WebGLRenderer({ alpha: true });
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 100);
+      const controls = new OrbitControls(camera, renderer.domElement);
+
+      // scene.background = new THREE.Color("yellow");
+      scene.background = null;
+      camera.position.set(-0.8, 0, 0.6);
+      controls.enableDamping = true;
+
+      const light = new THREE.PointLight("white", 4, 2, 0.5);
+      light.position.set(1, 1, 1);
+      scene.add(light);
+      scene.add(new THREE.AmbientLight("white", 0.3));
+
+      const geom = new StairsGeom(4);
+      const mat = new THREE.MeshLambertMaterial({
+        alphaMap: image_tex,
+        alphaTest: 0.12,
+        map: image_tex,
+        bumpMap: bump_tex,
+        bumpScale: 0.01,
+        side: THREE.DoubleSide,
+      });
+      const mesh = new THREE.Mesh(geom, mat);
+      scene.add(mesh);
+
+      // ----
+      // render
+      // ----
+
+      renderer.setAnimationLoop((t) => {
+        renderer.render(scene, camera);
+        controls.update();
+        image_tex.offset.y = t * 0.0005;
+      });
+
+      // ----
+      // view
+      // ----
+
+      // Append the canvas to a specific container, not the body
+      const parentContainer = document.getElementById("hero");
+      parentContainer.appendChild(renderer.domElement);
+
+      function resize() {
+        const width = parentContainer.clientWidth / 2.5;
+        const height = parentContainer.clientHeight / 2.5;
+        renderer.setSize(width, height);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      }
+
+      window.addEventListener("resize", resize);
+      resize(); // Call this on initialization
+    </script>
+  </body>
+</html>
